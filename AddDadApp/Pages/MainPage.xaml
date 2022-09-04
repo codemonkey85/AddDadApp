@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AddDadApp.ViewModels"
+             x:Class="AddDadApp.Pages.MainPage"
+             x:DataType="viewModels:MainPageViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25"
+                             Padding="30,0"
+                             VerticalOptions="Center">
+
+            <Label Text="Hello, Ethan!"
+                   SemanticProperties.HeadingLevel="Level1"
+                   FontSize="32"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Dad"
+                    HorizontalOptions="Center"
+                    Command="{Binding ClickDadCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
