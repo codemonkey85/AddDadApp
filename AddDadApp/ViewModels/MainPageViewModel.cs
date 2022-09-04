@@ -1,13 +1,7 @@
 ﻿namespace AddDadApp.ViewModels;
 
-[ObservableObject]
-public partial class MainPageViewModel
+public partial class MainPageViewModel : BaseViewModel
 {
-    public Action DisplayAlert;
-
     [RelayCommand]
-    private void ClickDad()
-    {
-        DisplayAlert?.Invoke();
-    }
+    private void ClickDad() => DisplayAlert?.Invoke("Title", "Message", "Cancel");
 }
