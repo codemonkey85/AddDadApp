@@ -2,6 +2,11 @@
 
 public partial class MainPageViewModel : BaseViewModel
 {
-    [RelayCommand]
-    private void ClickDad() => DisplayAlert?.Invoke("Title", "Message", "Cancel");
+    public ObservableCollection<Person> People = new()
+    {
+        new("Dad"),
+        new("Mom"),
+        new("Caleb"),
+        new("Ethan"),
+    };
 }
