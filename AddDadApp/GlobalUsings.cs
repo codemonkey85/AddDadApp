@@ -1,5 +1,9 @@
 ﻿global using System.Collections.ObjectModel;
+global using System.Diagnostics;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
 global using AddDadApp.Models;
 global using AddDadApp.Pages;
 global using AddDadApp.ViewModels;
 global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;

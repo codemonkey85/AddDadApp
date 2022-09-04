@@ -7,10 +7,21 @@
              x:DataType="viewModels:MainPageViewModel">
 
     <CollectionView Margin="10"
-                    x:Name="PeopleCollection">
+                    x:Name="PeopleCollection"
+                    ItemsSource="{Binding People}">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="models:Person">
-                <Label Text="{Binding Name}" />
+                <Frame Margin="10"
+                       WidthRequest="150"
+                       HeightRequest="150"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainPageViewModel}}, Path=SpeakNameCommand}"
+                                              CommandParameter="{Binding .}" />
+                    </Frame.GestureRecognizers>
+                    <Image Source="{Binding ImagePath}" />
+                </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
