@@ -1,16 +1,5 @@
 ﻿namespace AddDadApp.Models;
 
-public class Person
-{
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
+public record Person([property: JsonPropertyName("name")] string Name, [property: JsonPropertyName("imagePath")] string ImagePath);
 
-    [JsonPropertyName("imagePath")]
-    public string ImagePath { get; set; }
-}
-
-public class PeopleRoot
-{
-    [JsonPropertyName("people")]
-    public List<Person> People { get; set; }
-}
+public record PeopleRoot([property: JsonPropertyName("people")] List<Person> People);
