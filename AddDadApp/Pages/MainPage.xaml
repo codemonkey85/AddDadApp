@@ -4,26 +4,41 @@
              xmlns:viewModels="clr-namespace:AddDadApp.ViewModels"
              xmlns:models="clr-namespace:AddDadApp.Models"
              x:Class="AddDadApp.Pages.MainPage"
-             x:DataType="viewModels:MainPageViewModel">
+             x:DataType="viewModels:MainPageViewModel"
+             Title="{Binding Title}">
 
-    <CollectionView Margin="10"
-                    x:Name="PeopleCollection"
-                    ItemsSource="{Binding People}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:Person">
-                <Frame Margin="10"
-                       WidthRequest="150"
-                       HeightRequest="150"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainPageViewModel}}, Path=SpeakNameCommand}"
-                                              CommandParameter="{Binding .}" />
-                    </Frame.GestureRecognizers>
-                    <Image Source="{Binding ImagePath}" />
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh"
+                     Command="{Binding LoadDataCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                 Command="{Binding LoadDataCommand}">
+        <VerticalStackLayout>
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+            <CollectionView Margin="10"
+                            x:Name="PeopleCollection"
+                            ItemsSource="{Binding People}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Person">
+                        <Frame Margin="10"
+                               WidthRequest="150"
+                               HeightRequest="150"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainPageViewModel}}, Path=SpeakNameCommand}"
+                                                      CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                            <Image Source="{Binding ImagePath}" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </RefreshView>
 
 </ContentPage>
