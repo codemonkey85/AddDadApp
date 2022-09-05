@@ -12,8 +12,8 @@ public partial class MainPageViewModel : BaseViewModel
         {
             People.Clear();
             using var file = await FileSystem.OpenAppPackageFileAsync("people.json");
-            var peopleRoot = JsonSerializer.Deserialize<PeopleRoot>(file);
-            foreach (var person in peopleRoot.People)
+            var people = JsonSerializer.Deserialize<Person[]>(file);
+            foreach (var person in people)
             {
                 People.Add(person);
             }

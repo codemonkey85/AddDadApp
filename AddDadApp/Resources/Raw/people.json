@@ -1,20 +1,18 @@
-{
-  "people": [
-    {
-      "name": "Dad",
-      "imagePath": "dad.png"
-    },
-    {
-      "name": "Mom",
-      "imagePath": "mom.png"
-    },
-    {
-      "name": "Caleb",
-      "imagePath": "caleb.png"
-    },
-    {
-      "name": "Ethan",
-      "imagePath": "ethan.png"
-    }
-  ]
-}
+[
+  {
+    "name": "Dad",
+    "imagePath": "dad.png"
+  },
+  {
+    "name": "Mom",
+    "imagePath": "mom.png"
+  },
+  {
+    "name": "Caleb",
+    "imagePath": "caleb.png"
+  },
+  {
+    "name": "Ethan",
+    "imagePath": "ethan.png"
+  }
+]
